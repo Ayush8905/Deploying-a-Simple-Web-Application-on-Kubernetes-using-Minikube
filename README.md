@@ -53,7 +53,7 @@ Before proceeding, ensure your system meets the following requirements:
 - Follow the installation wizard
 - Enable **Kubernetes** in Docker Desktop settings
 <p align="center">  
-  <img src="i5.webp" width="500" >  
+  <img src="i11.png" width="500" >  
 </p>  
  
 > 
@@ -89,7 +89,7 @@ npx create-react-app my-react-app
 cd my-react-app  
 npm start  
 npm run build  
-🖼️ Add screenshot of the running React app on http://localhost:3000  
+  running React app on http://localhost:3000  
 
 2️⃣ Dockerize Application  
 # Create a production build:  
@@ -187,6 +187,10 @@ kubectl get pods
 </p>  
  <br>
 
+<p align="center">  
+  <img src="i10.png" width="700" alt="Project Logo">  
+</p>  
+ <br>
 
 
 # Access the app:  
@@ -197,7 +201,7 @@ Open in browser:
 
  
 http://<minikube-ip>:30036  
-🖼️ Add screenshot of your running app via Minikube URL  
+ 
 
 🌍 Global Deployment Options  
 # Option 1: Cloud Kubernetes (GKE, EKS, AKS)  
