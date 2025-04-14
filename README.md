@@ -52,8 +52,10 @@ Before proceeding, ensure your system meets the following requirements:
 - Download Docker Desktop from [https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop)
 - Follow the installation wizard
 - Enable **Kubernetes** in Docker Desktop settings
-
-> 🖼️ *Replace below with your Docker installation screenshot*
+<p align="center">  
+  <img src="i1.png" width="500" >  
+</p>  
+ 
 > 
 > ![Docker Install](images/docker-install.png)
 
@@ -74,25 +76,26 @@ minikube start
 3️⃣ Install kubectl
 Official Guide: https://kubernetes.io/docs/tasks/tools/
 
-For Linux:
+# For Linux:  
 
  
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
 kubectl version --client
-🧪 Local Deployment
+🧪 Local Deployment  
  # Create React App
  
 npx create-react-app my-react-app  
 cd my-react-app  
 npm start  
+npm run build  
 🖼️ Add screenshot of the running React app on http://localhost:3000  
 
 2️⃣ Dockerize Application  
 # Create a production build:  
  
-npm run build  
+
 Create a Dockerfile:  
 <p align="center">  
   <img src="i3.webp" width="700">  
@@ -121,11 +124,9 @@ docker build -t my-react-app .
  
 docker images  
 3️⃣ Kubernetes Setup  
-#Create deployment.yaml:  
+# Create deployment.yaml:  
 
 yaml  
-Copy  
-Edit  
 apiVersion: apps/v1  
 kind: Deployment  
 metadata:  
@@ -146,11 +147,11 @@ spec:
           ports:  
             - containerPort: 80  
           imagePullPolicy: IfNotPresent  
+          
 # Create service.yaml:  
 
 yaml  
-Copy  
-Edit  
+ 
 apiVersion: v1  
 kind: Service  
 metadata:  
@@ -173,6 +174,21 @@ spec:
 kubectl apply -f deployment.yaml   
 kubectl apply -f service.yaml   
 kubectl get pods  
+
+<p align="center">  
+  <img src="i1.png" width="500" alt="Project Logo">  
+</p>  
+<p align="center">  
+  <img src="i1.png" width="500" alt="Project Logo">  
+</p>  
+<p align="center">  
+  <img src="i1.png" width="500" alt="Project Logo">  
+</p>  
+<p align="center">  
+  <img src="i1.png" width="500" alt="Project Logo">  
+</p>  
+
+
 # Access the app:  
 
  
