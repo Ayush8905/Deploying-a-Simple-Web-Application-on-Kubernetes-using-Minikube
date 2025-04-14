@@ -53,11 +53,10 @@ Before proceeding, ensure your system meets the following requirements:
 - Follow the installation wizard
 - Enable **Kubernetes** in Docker Desktop settings
 <p align="center">  
-  <img src="i1.png" width="500" >  
+  <img src="i5.webp" width="500" >  
 </p>  
  
 > 
-> ![Docker Install](images/docker-install.png)
 
 
 # Verify Docker:
