@@ -166,9 +166,7 @@ spec:
       targetPort: 80  
       nodePort: 30036  
 
-  <p align="center">  
-  <img src="i5.webp" width="700">  
-</p>  
+  
 # 4️⃣ Deploy to Minikube  
  
 kubectl apply -f deployment.yaml   
@@ -176,17 +174,20 @@ kubectl apply -f service.yaml
 kubectl get pods  
 
 <p align="center">  
-  <img src="i1.png" width="500" alt="Project Logo">  
+  <img src="i6.png" width="700" alt="Project Logo">  
 </p>  
+ <br>
+
 <p align="center">  
-  <img src="i1.png" width="500" alt="Project Logo">  
+  <img src="i8.png" width="700" alt="Project Logo">  
 </p>  
+ <br>
+
 <p align="center">  
-  <img src="i1.png" width="500" alt="Project Logo">  
+  <img src="i9.png" width="700" alt="Project Logo">  
 </p>  
-<p align="center">  
-  <img src="i1.png" width="500" alt="Project Logo">  
-</p>  
+ <br>
+
 
 
 # Access the app:  
