@@ -86,147 +86,147 @@ kubectl version --client
  
 npx create-react-app my-react-app  
 cd my-react-app  
-npm start
-🖼️ Add screenshot of the running React app on http://localhost:3000
+npm start  
+🖼️ Add screenshot of the running React app on http://localhost:3000  
 
-2️⃣ Dockerize Application
-Create a production build:
+2️⃣ Dockerize Application  
+# Create a production build:  
  
-npm run build
-Create a Dockerfile:
+npm run build  
+Create a Dockerfile:  
 
-Dockerfile
+# Dockerfile
  
-FROM nginx:alpine
-COPY build/ /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
-Use Minikube's Docker daemon:
-
- 
-eval $(minikube -p minikube docker-env)
-Build Docker image:
+FROM nginx:alpine  
+COPY build/ /usr/share/nginx/html  
+EXPOSE 80  
+CMD ["nginx", "-g", "daemon off;"]  
+Use Minikube's Docker daemon:  
 
  
-docker build -t my-react-app .
-Verify:
+eval $(minikube -p minikube docker-env)  
+Build Docker image:  
 
  
-docker images
-3️⃣ Kubernetes Setup
-Create deployment.yaml:
-
-yaml
-Copy
-Edit
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: my-react-app
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: my-react-app
-  template:
-    metadata:
-      labels:
-        app: my-react-app
-    spec:
-      containers:
-        - name: my-react-app
-          image: my-react-app
-          ports:
-            - containerPort: 80
-          imagePullPolicy: IfNotPresent
-# Create service.yaml:
-
-yaml
-Copy
-Edit
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-react-app-service
-spec:
-  type: NodePort
-  selector:
-    app: my-react-app
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-      nodePort: 30036
-# 4️⃣ Deploy to Minikube
- 
-kubectl apply -f deployment.yaml
-kubectl apply -f service.yaml
-kubectl get pods
-Access the app:
+docker build -t my-react-app .  
+# Verify:
 
  
-minikube ip
-Open in browser:
+docker images  
+3️⃣ Kubernetes Setup  
+#Create deployment.yaml:  
+
+yaml  
+Copy  
+Edit  
+apiVersion: apps/v1  
+kind: Deployment  
+metadata:  
+  name: my-react-app  
+spec:  
+  replicas: 2  
+  selector:  
+    matchLabels:  
+      app: my-react-app  
+  template:  
+    metadata:  
+      labels:  
+        app: my-react-app 
+    spec:  
+      containers: 
+        - name: my-react-app  
+          image: my-react-app  
+          ports:  
+            - containerPort: 80  
+          imagePullPolicy: IfNotPresent  
+# Create service.yaml:  
+
+yaml  
+Copy  
+Edit  
+apiVersion: v1  
+kind: Service  
+metadata:  
+  name: my-react-app-service  
+spec:  
+  type: NodePort  
+  selector:  
+    app: my-react-app  
+  ports:  
+    - protocol: TCP  
+      port: 80  
+      targetPort: 80  
+      nodePort: 30036  
+# 4️⃣ Deploy to Minikube  
+ 
+kubectl apply -f deployment.yaml   
+kubectl apply -f service.yaml   
+kubectl get pods  
+# Access the app:  
 
  
-http://<minikube-ip>:30036
-🖼️ Add screenshot of your running app via Minikube URL
-
-🌍 Global Deployment Options
-Option 1: Cloud Kubernetes (GKE, EKS, AKS)
-Push image to DockerHub:
+minikube ip  
+Open in browser:  
 
  
-docker tag my-react-app your-dockerhub-username/my-react-app
-docker push your-dockerhub-username/my-react-app
-Update deployment.yaml with full image path and deploy on:
+http://<minikube-ip>:30036  
+🖼️ Add screenshot of your running app via Minikube URL  
 
-Google GKE
-
-AWS EKS
-
-Azure AKS
-
-Option 2: Static Hosting (For Static Sites)
- 
-npm run build
-Drag the build/ folder to:
-
- ## Vercel
-
-## Netlify
-
-🐛 Troubleshooting
-Problem: ImagePullBackOff
-
-✔️ Rebuild inside Minikube Docker:
+🌍 Global Deployment Options  
+# Option 1: Cloud Kubernetes (GKE, EKS, AKS)  
+Push image to DockerHub:  
 
  
-eval $(minikube -p minikube docker-env)
-docker build -t my-react-app .
-✔️ Check Image Name: Ensure it matches in deployment.yaml.
+docker tag my-react-app your-dockerhub-username/my-react-app   
+docker push your-dockerhub-username/my-react-app  
+Update deployment.yaml with full image path and deploy on:  
 
-✔️ Delete old pods:
+## Google GKE  
+
+## AWS EKS  
+
+## Azure AKS  
+
+# Option 2: Static Hosting (For Static Sites)  
+ 
+npm run build  
+Drag the build/ folder to:  
+
+##  Vercel  
+   
+## Netlify  
+
+#🐛 Troubleshooting   
+Problem: ImagePullBackOff  
+
+✔️ Rebuild inside Minikube Docker:  
 
  
-kubectl delete pod -l app=my-react-app
-✔️ Describe Pod:
+eval $(minikube -p minikube docker-env)  
+docker build -t my-react-app .  
+✔️ Check Image Name: Ensure it matches in deployment.yaml.  
+
+✔️ Delete old pods:  
+
+  
+kubectl delete pod -l app=my-react-app  
+✔️ Describe Pod:  
 
  
-kubectl describe pod <pod-name>
-📚 References
-Minikube Docs
+kubectl describe pod <pod-name>  
+📚 References  
+Minikube Docs  
 
-Docker Docs
+Docker Docs  
 
-Kubernetes Docs
+Kubernetes Docs  
 
-React Docs
+React Docs  
 
-# ✅ Final Result
-🖼️ Add a screenshot of your deployed application in the browser with Minikube IP and port
+# ✅ Final Result  
+🖼️ Add a screenshot of your deployed application in the browser with Minikube IP and port  
 
-Your React app should now be running locally on Kubernetes using Minikube and ready to deploy globally!
+Your React app should now be running locally on Kubernetes using Minikube and ready to deploy globally!  
 
 
 
