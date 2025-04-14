@@ -235,7 +235,6 @@ Kubernetes Docs
 React Docs  
 
 # ✅ Final Result  
-🖼️ Add a screenshot of your deployed application in the browser with Minikube IP and port  
 
 Your React app should now be running locally on Kubernetes using Minikube and ready to deploy globally!  
 
