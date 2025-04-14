@@ -1,18 +1,18 @@
 # 🚀 Deploying a React Web Application on Kubernetes using Minikube
 
+<p align="center">  
+  <img src="i1.png" width="500" alt="Project Logo">  
+</p>  
+
 This repository demonstrates how to create, Dockerize, and deploy a React web application using Kubernetes on a local environment powered by Minikube. It’s designed for **absolute beginners** and includes installation guides, deployment commands, and troubleshooting tips.
 
 ---
 
 ## 🧱 Kubernetes Architecture
 
-> Replace with your actual Kubernetes architecture diagram.
-> 
-> Example: Add a diagram showing user → NodePort → Service → Deployment → Pods.
-
-![Kubernetes Architecture](images/kubernetes-architecture.png)
-
----
+<p align="center">  
+  <img src="i2.webp" width="500">  
+</p>  
 
 ## 📚 Table of Contents
 
@@ -94,6 +94,9 @@ npm start
  
 npm run build  
 Create a Dockerfile:  
+<p align="center">  
+  <img src="i3.webp" width="700">  
+</p>  
 
 # Dockerfile
  
@@ -109,6 +112,10 @@ Build Docker image:
 
  
 docker build -t my-react-app .  
+
+<p align="center">  
+  <img src="i4.webp" width="700">  
+</p>  
 # Verify:
 
  
@@ -157,6 +164,10 @@ spec:
       port: 80  
       targetPort: 80  
       nodePort: 30036  
+
+  <p align="center">  
+  <img src="i5.webp" width="700">  
+</p>  
 # 4️⃣ Deploy to Minikube  
  
 kubectl apply -f deployment.yaml   
